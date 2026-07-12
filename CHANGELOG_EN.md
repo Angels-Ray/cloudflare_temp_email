@@ -15,6 +15,7 @@
 
 ### Bug Fixes
 
+- fix: |CI| Fix backend deploy workflow handling of `BACKEND_TOML` so secrets stored as escaped `\n` are decoded before writing `wrangler.toml`; also print full wrangler output on deploy failure instead of only an exit code
 - fix: |Admin| When deleting an address from the admin panel, delete its mails, sender records, sendbox and auto-reply entries before removing the address row itself; previously the address row was deleted first, so the name-based subqueries matched nothing and the mails were left orphaned in the database
 - fix: |AI Extract| Strengthen the prompt to keep original link domains from the email, preventing small models from rewriting verification-link domains (issue #1072)
 - fix: |AI Extract| Convert HTML-only mail bodies into compact readable text before sending them to Workers AI, preventing long templates from pushing verification codes past the 4000-character truncation window
